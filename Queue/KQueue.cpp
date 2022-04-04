@@ -72,8 +72,8 @@ public:
             return -1;
         }
 
-        int index = front[qn-1];
-        front[qn-1] = next[index];
+        int index = front[qn - 1];
+        front[qn - 1] = next[index];
         next[index] = freeSpot;
         freeSpot = index;
         return arr[index];
@@ -82,6 +82,17 @@ public:
 
 int main()
 {
+    Kqueue q(10, 3);
+    q.enqueue(10, 1);
+    q.enqueue(15, 1);
+    q.enqueue(20, 2);
+    q.enqueue(25, 1);
 
+    cout << q.dequeue(1) << endl;
+    cout << q.dequeue(2) << endl;
+    cout << q.dequeue(1) << endl;
+    cout << q.dequeue(1) << endl;
+
+    cout << q.dequeue(1) << endl;
     return 0;
 }
