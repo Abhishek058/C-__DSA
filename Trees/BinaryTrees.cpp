@@ -17,54 +17,74 @@ public:
     }
 };
 
-node* buildTree(node* root) {
-    cout<<"Enter the data: ";
+node *buildTree(node *root)
+{
+    cout << "Enter the data: ";
     int data;
-    cin>>data;
+    cin >> data;
     root = new node(data);
-    
-    if(data == -1){
+
+    if (data == -1)
+    {
         return NULL;
     }
 
-    cout<<"Enter the left child data of "<<data<<endl;
+    cout << "Enter the left child data of " << data << endl;
     root->left = buildTree(root->left);
-    cout<<"Enter the right child data: "<<data<<endl;
+    cout << "Enter the right child data: " << data << endl;
     root->right = buildTree(root->right);
     return root;
 }
 
-void levelOrderTraversal(node* root){
-    queue<node*> q;
+void levelOrderTraversal(node *root)
+{
+    queue<node *> q;
     q.push(root);
-    // q.push(NULL);
+    q.push(NULL);
 
-    while(!q.empty()){
-        node* temp = q.front();
-        cout<<temp->data<<" ";
+    while (!q.empty())
+    {
+        node *temp = q.front();
+        cout << temp->data << " ";
         q.pop();
 
-        if(temp->left){
-            q.push(temp->left);
+        if (temp == NULL)
+        {
+            // purana level complete traverse ho chuka hai
+            cout << endl;
+            if (!q.empty())
+            {
+                // queue still has some child ndoes
+                q.push(NULL);
+            }
         }
-        
-        if(temp->right){
-            q.push(temp->right);
+
+        else
+        {
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
         }
     }
 }
 
 int main()
 {
-    //Tree: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+    // Tree: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 
-    node* root = NULL;
+    node *root = NULL;
 
-    //creating tree
+    // creating tree
     root = buildTree(root);
 
-    //level order
-    cout<<"Printing the level order treversal output"<<endl;
+    // level order
+    cout << "Printing the level order treversal output" << endl;
     levelOrderTraversal(root);
     return 0;
 }
