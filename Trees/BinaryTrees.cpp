@@ -16,12 +16,28 @@ public:
     }
 };
 
-node* buildTree() {
+node* buildTree(node* root) {
+    cout<<"Enter the data: ";
+    int data;
+    cin>>data;
+    root = new node(data);
     
+    if(data == -1){
+        return NULL;
+    }
+
+    cout<<"Enter the left child data: ";
+    root->left = buildTree(root->left);
+    cout<<"Enter the right child data: ";
+    root->right = buildTree(root->right);
+    return root;
 }
 
 int main()
 {
+    node* root = NULL;
 
+    //creating tree
+    root = buildTree(root);
     return 0;
 }
