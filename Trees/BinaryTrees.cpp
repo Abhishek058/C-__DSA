@@ -26,9 +26,9 @@ node* buildTree(node* root) {
         return NULL;
     }
 
-    cout<<"Enter the left child data: ";
+    cout<<"Enter the left child data of "<<data<<endl;
     root->left = buildTree(root->left);
-    cout<<"Enter the right child data: ";
+    cout<<"Enter the right child data: "<<data<<endl;
     root->right = buildTree(root->right);
     return root;
 }
