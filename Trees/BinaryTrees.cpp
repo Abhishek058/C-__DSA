@@ -176,5 +176,6 @@ int main()
     // postOrder(root);
 
     buildFromLevelOrder(root);
+    levelOrderTraversal(root);
     return 0;
 }
