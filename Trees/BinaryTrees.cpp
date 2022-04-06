@@ -75,6 +75,28 @@ void levelOrderTraversal(node *root)
     }
 }
 
+void inOrder(node* root){
+    if(root == NULL){
+        return;
+    }
+
+    inOrder(root->left);
+    cout<<root->data<<" ";
+    inOrder(root->right);
+}
+
+void preOrder(node* root){
+    if(root == NULL){
+        return;
+    }
+
+    cout<<root->data<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+
+
 int main()
 {
     // Tree: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
@@ -87,5 +109,15 @@ int main()
     // level order
     cout << "Printing the level order treversal output" << endl;
     levelOrderTraversal(root);
+
+    cout<<endl;
+
+    cout<<"In Order traversal is: ";
+    inOrder(root);
+
+    cout<<endl;
+
+    cout<<"Pre Order traversal is: ";
+    preOrder(root);
     return 0;
 }
