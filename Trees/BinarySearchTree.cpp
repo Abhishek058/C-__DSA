@@ -92,5 +92,7 @@ int main()
     Node *root = NULL;
     cout << "Enter data in tree: ";
     takeInput(root);
+    cout<<"Printing tree: "<<endl;
+    levelOrderTraversal(root);
     return 0;
 }
