@@ -79,7 +79,7 @@ void takeInput(Node *&root)
 {
     int data;
     cin >> data;
-`
+
     while (data != -1)
     {
         insertIntoBST(root, data);
