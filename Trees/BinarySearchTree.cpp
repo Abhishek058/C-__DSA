@@ -63,7 +63,7 @@ void takeInput(Node *&root)
 int main()
 {
     Node *root = NULL;
-    cout << "Enter data in tree: ";
+    cout << "Enter data in ftree: ";
     takeInput(root);
     cout<<"Printing tree: "<<endl;
     inOrder(root);
