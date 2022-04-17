@@ -36,43 +36,16 @@ Node *insertIntoBST(Node *&root, int d)
     return root;
 }
 
-void levelOrderTraversal(Node *root)
+void inOrder(Node *root)
 {
-    queue<Node *> q;
-    q.push(root);
-    q.push(NULL);
-
-    while (!q.empty())
+    if (root == NULL)
     {
-        Node *temp = q.front();
-        q.pop();
-
-        if (temp == NULL)
-        {
-            // purana level complete traverse ho chuka hai
-            cout << endl;
-            if (!q.empty())
-            {
-                // queue still has some child ndoes
-                q.push(NULL);
-            }
-        }
-
-        else
-        {
-            cout << temp->data << " ";
-
-            if (temp->left)
-            {
-                q.push(temp->left);
-            }
-
-            if (temp->right)
-            {
-                q.push(temp->right);
-            }
-        }
+        return;
     }
+
+    inOrder(root->left);
+    cout << root->data << " ";
+    inOrder(root->right);
 }
 
 void takeInput(Node *&root)
@@ -93,6 +66,6 @@ int main()
     cout << "Enter data in tree: ";
     takeInput(root);
     cout<<"Printing tree: "<<endl;
-    levelOrderTraversal(root);
+    inOrder(root);
     return 0;
 }
