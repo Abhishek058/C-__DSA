@@ -121,8 +121,17 @@ void takeInput(Node *&root)
 int main()
 {
     Node *root = NULL;
-    cout << "Enter data in ftree: ";
+    cout << "Enter data in tree: ";
     takeInput(root);
+    cout<<"Printing tree: "<<endl;
+    inOrder(root);
+    cout<<endl;
+    cout<<"Minimum value: "<<minVal(root)->data<<endl;
+    cout<<"Maximum value: "<<maxVal(root)->data<<endl;
+
+    root = deleteFromBST(root, 30);
+
+    cout<<"After deletion";
     cout<<"Printing tree: "<<endl;
     inOrder(root);
     cout<<endl;
