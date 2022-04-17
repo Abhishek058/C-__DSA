@@ -131,7 +131,7 @@ int main()
 
     root = deleteFromBST(root, 30);
 
-    cout<<"After deletion";
+    cout<<"After deletion"<<endl;
     cout<<"Printing tree: "<<endl;
     inOrder(root);
     cout<<endl;
