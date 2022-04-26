@@ -29,7 +29,7 @@ public:
     }
     void print()
     {
-        for (int i = 0; i < size; i++)
+        for (int i = 1; i < size; i++)
         {
             cout << arr[i] << " ";
         }
@@ -39,6 +39,13 @@ public:
 
 int main()
 {
+    Heap h;
+    h.insert(5);
+    h.insert(7);
+    h.insert(1);
+    h.insert(3);
+    h.insert(8);
 
+    h.print();
     return 0;
 }
