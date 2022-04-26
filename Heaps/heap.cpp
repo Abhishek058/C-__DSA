@@ -108,6 +108,9 @@ int main()
     h.Delete();
     h.print();
 
-    
+    int arr[6] = {-1, 54, 53, 55, 52, 50};
+    for(int i=n/2; i>0; i--){
+        he
+    }
     return 0;
 }
