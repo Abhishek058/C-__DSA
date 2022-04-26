@@ -7,6 +7,11 @@ public:
     int arr[100];
     int size = 0;
 
+    Heap(){
+        arr[0] = -1;
+        size = 0;
+    }
+
     void insert(int val)
     {
         size++;
