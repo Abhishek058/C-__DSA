@@ -40,11 +40,11 @@ public:
 int main()
 {
     Heap h;
-    h.insert(5);
-    h.insert(7);
-    h.insert(1);
-    h.insert(3);
-    h.insert(8);
+    h.insert(50);
+    h.insert(55);
+    h.insert(53);
+    h.insert(52);
+    h.insert(54);
 
     h.print();
     return 0;
