@@ -68,6 +68,23 @@ public:
         }
     }
 
+    void Heapify(int arr[], int n, int i){
+        int largest = 1;
+        int left = 2*i;
+        int right = 2*i+1;
+
+        if(left<n && arr[largest] < arr[left]){
+            largest = left;
+        }
+        if(right < n && arr[largest] < arr[right]){
+            largest = right;
+        }
+        if(largest != 1){
+            swap(arr[largest], arr[i]);
+            Heapify(arr, n, largest);
+        }
+    }
+
     void print()
     {
         for (int i = 1; i <= size; i++)
@@ -90,5 +107,7 @@ int main()
 
     h.Delete();
     h.print();
+
+    
     return 0;
 }
