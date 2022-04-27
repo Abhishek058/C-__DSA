@@ -128,11 +128,15 @@ int main()
         Heapify(arr, n, i);
     }
     cout<<"Printing the array now"<<endl;
-    h.print();
+    for(int i=1; i<n; i++){
+        cout<<arr[i]<<" ";
+    }cout<<endl;
 
     HeapSort(arr, n);
     cout<<"Printing the Sorted array now"<<endl;
-    h.print();
+    for(int i=1; i<n; i++){
+        cout<<arr[i]<<" ";
+    }cout<<endl;
 
     return 0;
 }
