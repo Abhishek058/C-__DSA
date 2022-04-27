@@ -99,6 +99,15 @@ void Heapify(int arr[], int n, int i)
     }
 }
 
+void HeapSort(int arr[], int n){
+    int size = n;
+    while(size>1){
+        swap(arr[size], arr[1]);
+        size--;
+    }
+    Heapify(arr, size, 1);
+}
+
 int main()
 {
     Heap h;
@@ -119,8 +128,11 @@ int main()
         Heapify(arr, n, i);
     }
     cout<<"Printing the array now"<<endl;
-    for(int i=1; i<n; i++){
-        cout<<arr[i]<<" ";
-    }
+    h.print();
+
+    HeapSort(arr, n);
+    cout<<"Printing the Sorted array now"<<endl;
+    h.print();
+
     return 0;
 }
