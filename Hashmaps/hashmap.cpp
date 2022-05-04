@@ -17,10 +17,12 @@ int main()
 
     //3rd way of insertion
     m["my"] = 1; //initialization
-    m["my"] = 3; //updation
+    m["my"] = 2; //updation
 
-    cout<<m["my"];
-
+    //Search
+    cout<<m["my"]<<endl;
+    cout<<m.at("abhishek")<<endl;
+    cout<<m.at("name")<<endl;   //key not found error
 
     return 0;
 }
