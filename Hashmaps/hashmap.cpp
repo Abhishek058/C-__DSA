@@ -22,9 +22,19 @@ int main()
     //Search
     cout<<m["my"]<<endl;
     cout<<m.at("abhishek")<<endl;
-    cout<<m.at("name")<<endl;   //key not found error **** if it is defined below line 27 value printed will be 0
+    // cout<<m.at("name")<<endl;   //key not found error **** if it is defined below line 27 value printed will be 0
 
     cout<<m["name"]<<endl;
+
+    //size
+    cout<<m.size()<<endl;
+
+    //count
+    cout<<m.count("my")<<endl;
+
+    //erase
+    m.erase("my");
+    cout<<m.size()<<endl;
 
     return 0;
 }
