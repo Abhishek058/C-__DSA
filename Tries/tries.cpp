@@ -23,16 +23,17 @@ class trie
 {
 public:
     trieNode *root;
-    trie(){
+    trie()
+    {
         root = new trieNode('\0');
     }
 
-    void insertUntil(trieNode *root, string word)
+    void insertUtil(trieNode *root, string word)
     {
         if (word.length() == 0)
         {
             root->isTerminal = true;
-            return ;
+            return;
         }
 
         int index = word[0] - 'A';
@@ -47,17 +48,48 @@ public:
             child = new trieNode(word[0]);
             root->children[index] = child;
         }
-        insertUntil(child, word.substr(1));
+        insertUtil(child, word.substr(1));
     }
 
     void insertWord(string word)
     {
-        insertUntil(root, word);
+        insertUtil(root, word);
     }
+
+    bool searchUtil(trieNode *root, string word)
+    {
+        if (word.length() == 0)
+        {
+            return root->isTerminal;
+        }
+
+        int index = word[0] - 'A';
+        trieNode *child;
+
+        if (root->children[index] != NULL)
+        {
+            child = root->children[index];
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+        return searchUtil(child, word.substr(1));
+    }
+
+    bool searchWord(string word)
+    {
+        return searchUtil(root, word);
+    }
+
+    
 };
 int main()
 {
     trie *t = new trie();
-    t->insertWord("abcd");
+    t->insertWord("ABCD");
+    cout << "Present or Not " << t->searchWord("ABCD") << endl;
     return 0;
 }
