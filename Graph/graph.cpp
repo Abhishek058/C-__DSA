@@ -3,7 +3,7 @@
 #include <unordered_map>
 using namespace std;
 
-class graph
+class Graph
 {
 public:
     unordered_map<int, list<int>> adj;
@@ -25,7 +25,7 @@ public:
     {
         for (auto i : adj)
         {
-            cout << i.first << "->";
+            cout << i.first << "-> ";
             for (auto j : i.second)
             {
                 cout << j << ", ";
@@ -37,6 +37,22 @@ public:
 
 int main()
 {
+    int n;
+    cout<<"Enter the number of node: "<<endl;
+    cin>>n;
 
+    int m;
+    cout<<"Enter the number of edge: "<<endl;
+    cin>>m;
+
+    Graph g;
+    for(int i=0; i<m; i++){
+        int u, v;
+        cin>>u>>v;
+        //creating an undirected graph
+        g.addEdge(u, v, 0);
+    }
+
+    g.printList();
     return 0;
 }
