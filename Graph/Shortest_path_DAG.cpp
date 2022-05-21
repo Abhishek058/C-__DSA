@@ -84,5 +84,18 @@ int main()
             g.topSort(i, visited, s);
         }
     }
+    int src = 1;
+    vector<int> dis(6);
+    for (int i = 0; i < 6; i++)
+    {
+        dis[i] = INT_MAX;
+    }
+    g.getShortestPath(src, dis, s);
+    cout << "Answer: " << endl;
+    for (int i = 0; i < dis.size(); i++)
+    {
+        cout << dis[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
