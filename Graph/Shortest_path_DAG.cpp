@@ -40,5 +40,16 @@ int main()
     g.addEdge(4, 5, -2);
 
     g.printAdj();
+    
+    unordered_map<int, bool> visited;
+    stack<int> s;
+    for (int i = 0; i < 6; i++)
+    {
+        if (!visited[i])
+        {
+            g.topSort(i, visited, s);
+        }
+    }
+    in
     return 0;
 }
