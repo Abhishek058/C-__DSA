@@ -24,6 +24,19 @@ public:
             cout << endl;
         }
     }
+    void topSort(int node, unordered_map<int, bool> &visited, stack<int> &s)
+    {
+        visited[node] = true;
+
+        for (auto neighbour : adj[node])
+        {
+            if (!visited[neighbour.first])
+            {
+                topSort(neighbour.first, visited, s);
+            }
+        }
+        s.push(node);
+    }
 };
 
 int main()
@@ -40,7 +53,7 @@ int main()
     g.addEdge(4, 5, -2);
 
     g.printAdj();
-    
+
     unordered_map<int, bool> visited;
     stack<int> s;
     for (int i = 0; i < 6; i++)
@@ -50,6 +63,5 @@ int main()
             g.topSort(i, visited, s);
         }
     }
-    in
     return 0;
 }
