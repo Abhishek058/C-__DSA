@@ -37,6 +37,27 @@ public:
         }
         s.push(node);
     }
+    void getShortestPath(int src, vector<int> &dis, stack<int> &s)
+    {
+        dis[src] = 0;
+
+        while (!s.empty())
+        {
+            int top = s.top();
+            s.pop();
+
+            if (dis[top] != INT_MAX)
+            {
+                for (auto i : adj[top])
+                {
+                    if (dis[top] + i.second < dis[i.first])
+                    {
+                        dis[i.first] = dis[top] + i.second;
+                    }
+                }
+            }
+        }
+    }
 };
 
 int main()
