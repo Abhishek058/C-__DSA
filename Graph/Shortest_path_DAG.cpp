@@ -12,6 +12,18 @@ public:
         pair<int, int> p = make_pair(v, weight);
         adj[u].push_back(p);
     }
+    void printAdj()
+    {
+        for (auto i : adj)
+        {
+            cout << i.first << " -> ";
+            for (auto j : i.second)
+            {
+                cout << "{" << j.first << ", " << j.second << "},";
+            }
+            cout << endl;
+        }
+    }
 };
 
 int main()
@@ -26,5 +38,7 @@ int main()
     g.addEdge(2, 5, 2);
     g.addEdge(3, 4, -1);
     g.addEdge(4, 5, -2);
+
+    g.printAdj();
     return 0;
 }
