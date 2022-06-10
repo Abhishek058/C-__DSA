@@ -1,8 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void dfs(int node, int parent, vector<int> &disc, vector<int> &low, unordered_map<int, bool> &vis, unordered_map<int, list<int>> &adj, vector<int> &ap, int timer){
+void dfs(int node, int parent, vector<int> &disc, unordered_map<int, bool> &vis, vector<int> &low, unordered_map<int, list<int>> &adj, vector<int> &ap, int timer)
+{
+    vis[node] = true;
+    disc[node] = low[node] = timer++;
+    int child = 0;
 
+    for (auto nbr : adj[node])
+    {
+        if (nbr == parent)
+        {
+            continue;
+        }
+        if (!vis[nbr])
+        {
+            dfs(nbr, node, disc, vis, low, adj, ap, timer);
+            low[node] = min(low[node], low[nbr]);
+            if (low[nbr] >= disc[node] && parent != -1)
+            {
+                ap[node] = true;
+            }
+            child++;
+        }
+        else
+        {
+            low[node] = min(low[node], disc[nbr]);
+        }
+    }
+    if(parent = -1 && child > 1){
+        ap[node] = 1;
+    }
 }
 
 int main()
@@ -43,7 +71,7 @@ int main()
     {
         if (!vis[i])
         {
-            dfs(i, -1, disc, low, vis, adj, ap, timer);
+            dfs(i, -1, disc, vis, low, adj, ap, timer);
         }
     }
 
